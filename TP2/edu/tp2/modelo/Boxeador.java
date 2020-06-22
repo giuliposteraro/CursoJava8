@@ -34,8 +34,11 @@ public class Boxeador {
 	}
 
 	public void asignarCategoria(Categoria cat) {
-		if(cat.pesoMinimo()< this.getPeso()< cat.pesoMaximo()) {
+		if(Double.compare(cat.pesoMinimo(), this.getPeso())>0 && Double.compare(cat.pesoMaximo(), this.getPeso())<0) {
 			this.setCategoriaAsignada(cat);
+		}
+		else {
+			this.setCategoriaAsignada(cat.categoriaInferior());
 		}
 	}
 
